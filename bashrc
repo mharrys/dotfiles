@@ -22,5 +22,5 @@ alias dropbox='python2 ~/bin/dropbox.py'
 alias music='ncmpcpp'
 
 # exports
-export PATH="$PATH:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
-export GEM_HOME="$(ruby -rubygems -e 'puts Gem.user_dir')"
+export PATH=$PATH:~/.gem/ruby/1.9.1/bin
+export GEM_HOME="~/.gem/ruby/1.9.1"
