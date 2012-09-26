@@ -1,0 +1,209 @@
+" Basic
+"
+" Use UTF-8 character encoding, http://tinyurl.com/px6nwy
+if has("multi_byte")
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8
+endif
+" Load filetype after invoking Pathogen
+filetype off
+" Invoke Pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
+" Indicate a fast terminal connection
+set ttyfast
+" Disable errorbell and visualbell
+set noeb novb t_vb=
+" Enable mouse interaction
+set mouse=a
+" Disable modline support
+set nomodeline
+set modelines=0
+" Allow backspace in Insert mode
+set backspace=indent,eol,start
+" Number of lines above and below cursor
+set scrolloff=4
+" Disable Vim intro message
+set shortmess=atI
+" Enable ft
+filetype on
+filetype plugin on
+" Yank to system clipboard
+set clipboard+=unnamed
+" Do not automatically append first word and always show menu even for single
+" results. This will disable preview
+set completeopt=longest,menuone
+" Enable hiding
+set hidden
+
+" Text format, http://tinyurl.com/cz7d2ev
+"
+" Reset
+au FileType * setl fo=
+" Auto-wrap text using 'textwidth'
+au FileType * setl fo+=t
+" Auto-wrap comments using 'textwidth', inserting the current comment leader
+" automatically
+au FileType * setl fo+=c
+" Automatically insert the current comment leader after hitting <Enter> in
+" Insert mode
+au FileType * setl fo+=r
+" When formatting text, recognize numbered lists using 'formatlistpat'
+" options. Requires 'autoindent'
+au FileType * setl fo+=n
+
+" Tab
+"
+" Number of columns to use for one tab character
+set tabstop=4
+" Number of columns to jump when pressing <tab> or <bs>
+set softtabstop=4
+" Number of columns to indent when pressing >, < or =
+set shiftwidth=4
+" Insert 'softtabstop' amount of spaces instead of tab character
+set expandtab
+" Insert 'shiftwidth' amount of spaces if infront of a line when pressing
+" <tab>
+set smarttab
+
+" Indent
+"
+" Copy indentation from previous line when starting a new line
+set autoindent
+" Enable better indentation for supported filetypes
+filetype indent on
+
+" Wrap
+"
+" Number of columns before wrap
+set textwidth=78
+" Disable window wrap
+set nowrap
+
+" Visual
+"
+" Enable color syntax
+syntax on
+" Enable 256 colors
+set t_Co=256
+" Use specified colorscheme
+colorscheme cottonmouse
+" Inserts a colored column at specified column
+set colorcolumn=80
+" Show line numbers
+set number
+" Hide cursor line
+set nocursorline
+" Hide (partial) comman
+set noshowcmd
+" Show filename in window titlebar
+set title
+" Enable wild menu
+set wildmenu
+" Enable visual display for completion when using wild menu
+set wildmode=list:longest,full
+" Show 'hidden'
+set lcs=tab:▸\ ,trail:·,nbsp:_
+set list
+
+" Remap
+"
+" Replace default <Leader> key
+let mapleader = ","
+" Exit Insert mode
+inoremap jj <esc>
+" Toggle paste mode in Insert mode
+set pastetoggle=<f3>
+" Clears search highlights
+nnoremap <leader><space> :noh<cr>
+" Jump to matching brackets
+nnoremap <tab> %
+vnoremap <tab> %
+" Movement between buffers
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-h> <c-w>h
+map <c-l> <c-w>l
+" Next buffer
+nmap <tab><tab> <c-w>w
+" Resize vertical split
+map <c-n> 2<c-w><
+map <c-m> 2<c-w>>
+" Select all
+map <leader>a ggVG
+" Use j and k for going up or down in omni
+inoremap <silent><c-j> <c-r>=OmniPopup('j')<cr>
+inoremap <silent><c-k> <c-r>=OmniPopup('k')<cr>
+" Open vimrc in a new tab
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Search
+"
+" Case-insensitive searches
+set ignorecase
+" Case-sensitive if search contains an uppercase character
+set smartcase
+" Highlights search terms, press (,space) to clear
+set hlsearch
+" Match string while typing a sarch command
+set incsearch
+
+" Temporary storage
+"
+" Don't create a backup file
+set nobackup
+set nowritebackup
+" Don't create a swap file
+set noswapfile
+" Don't store information from earlier Vim sessions
+set viminfo=
+" Number of commands to track
+set history=500
+" Number of undo levels to track
+set undolevels=500
+
+" Script
+"
+" Automatically trim whitespaces before saving file
+au bufwritepre * :%s/\s\+$//e
+" Movement keys for omni when active, http://tinyurl.com/bud4h9d
+function! OmniPopup(action)
+    if pumvisible()
+        if a:action == 'j'
+            return "\<C-N>"
+        elseif a:action == 'k'
+            return "\<C-P>"
+        endif
+    endif
+    return a:action
+endfunction
+
+" Plugin specific
+"
+" 'powerline'
+"
+" Show status line
+set laststatus=2
+" Hide Insert, Replace or Visual mode on the last line
+set noshowmode
+"
+" 'python-mode'
+"
+let g:pymode_folding = 0
+let g:pymode_syntax = 1
+let g:pymode_syntax_builtin_objs = 0
+let g:pymode_syntax_builtin_funcs = 0
+let g:pymode_rope_guess_project = 1
+let g:pymode_rope_extended_complete = 1
+"
+" 'supertab'
+"
+let g:SuperTabDefaultCompletionType = "context"
+"
+" 'nerdtree'
+"
+nmap <c-o> :NERDTreeToggle<CR>
