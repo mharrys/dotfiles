@@ -20,6 +20,7 @@ alias browser='chromium'
 alias image='feh'
 alias dropbox='python2 ~/bin/dropbox.py'
 alias music='ncmpcpp'
+alias virtualenv='python ~/bin/virtualenv.py'
 
 # exports
 export PATH=$PATH:~/.gem/ruby/1.9.1/bin
