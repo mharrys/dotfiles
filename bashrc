@@ -3,7 +3,6 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# basic
 PS1='\w\$ '
 
 alias ls='ls -h --color=auto --group-directories-first'
@@ -13,3 +12,5 @@ alias mv='mv -i -v'
 alias rm='rm -i -v'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
+
+export EDITOR=vim
