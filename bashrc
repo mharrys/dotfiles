@@ -13,15 +13,3 @@ alias mv='mv -i -v'
 alias rm='rm -i -v'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
-
-# apps
-#alias pdf='mupdf'
-#alias browser='chromium'
-#alias image='feh'
-#alias dropbox='python2 ~/bin/dropbox.py'
-#alias music='ncmpcpp'
-#alias virtualenv='python ~/bin/virtualenv.py'
-
-# exports
-#export PATH=$PATH:~/.gem/ruby/1.9.1/bin
-#export GEM_HOME="~/.gem/ruby/1.9.1"
