@@ -6,7 +6,7 @@
 # basic
 PS1='\w\$ '
 
-alias ls='ls -h --color=auto'
+alias ls='ls -h --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias cp='cp -i -v'
 alias mv='mv -i -v'
@@ -15,13 +15,13 @@ alias halt='sudo halt'
 alias reboot='sudo reboot'
 
 # apps
-alias pdf='mupdf'
-alias browser='chromium'
-alias image='feh'
-alias dropbox='python2 ~/bin/dropbox.py'
-alias music='ncmpcpp'
-alias virtualenv='python ~/bin/virtualenv.py'
+#alias pdf='mupdf'
+#alias browser='chromium'
+#alias image='feh'
+#alias dropbox='python2 ~/bin/dropbox.py'
+#alias music='ncmpcpp'
+#alias virtualenv='python ~/bin/virtualenv.py'
 
 # exports
-export PATH=$PATH:~/.gem/ruby/1.9.1/bin
-export GEM_HOME="~/.gem/ruby/1.9.1"
+#export PATH=$PATH:~/.gem/ruby/1.9.1/bin
+#export GEM_HOME="~/.gem/ruby/1.9.1"
