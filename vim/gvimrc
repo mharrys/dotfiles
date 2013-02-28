@@ -1,5 +1,1 @@
-" Remove menu, toolbar and right-hand scroll bar in gvim
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set guioptions-=l
+set guifont=Envy\ Code\ R\ 10

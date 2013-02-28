@@ -1,16 +1,6 @@
-" Basic
-"
-" Use UTF-8 character encoding, http://tinyurl.com/px6nwy
-if has("multi_byte")
-    if &termencoding == ""
-        let &termencoding = &encoding
-    endif
-    set encoding=utf-8
-    setglobal fileencoding=utf-8
-endif
-" Load filetype after invoking Pathogen
-filetype off
-" Invoke Pathogen
+" UTF-8 character encoding
+set encoding=utf-8
+" Start Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -25,39 +15,27 @@ set nomodeline
 set modelines=0
 " Allow backspace in Insert mode
 set backspace=indent,eol,start
-" Number of lines above and below cursor
+" Minimum number of lines above and below cursor
 set scrolloff=4
 " Disable Vim intro message
 set shortmess=atI
-" Enable ft
-filetype on
-filetype plugin on
-" Yank to system clipboard
-set clipboard+=unnamed
-" Do not automatically append first word and always show menu even for single
-" results. This will disable preview
+" Enable filetype detection and indenting for supported filetypes
+filetype plugin indent on
+" Default text formatting
+"   t: Auto-wrap text using 'textwidth'
+"   c: Auto-wrap comments using 'textwidth', inserting the current comment
+"      leader automatically
+"   r: Automatically insert the current comment leader after hitting enter
+"      in Insert mode
+set formatoptions=tcr
+" Do not automatically append first word and always show menu even for one
+" match. This will disable preview
 set completeopt=longest,menuone
-" Enable hiding
+" Allow hiding buffers that has been modified
 set hidden
 
-" Text format, http://tinyurl.com/cz7d2ev
-"
-" Reset
-au FileType * setl fo=
-" Auto-wrap text using 'textwidth'
-au FileType * setl fo+=t
-" Auto-wrap comments using 'textwidth', inserting the current comment leader
-" automatically
-au FileType * setl fo+=c
-" Automatically insert the current comment leader after hitting <Enter> in
-" Insert mode
-au FileType * setl fo+=r
-" When formatting text, recognize numbered lists using 'formatlistpat'
-" options. Requires 'autoindent'
-au FileType * setl fo+=n
 
-" Tab
-"
+" ========== Tab =============================================================
 " Number of columns to use for one tab character
 set tabstop=4
 " Number of columns to jump when pressing <tab> or <bs>
@@ -70,30 +48,26 @@ set expandtab
 " <tab>
 set smarttab
 
-" Indent
-"
+
+" ========== Indent ==========================================================
 " Copy indentation from previous line when starting a new line
 set autoindent
-" Enable better indentation for supported filetypes
-filetype indent on
 
-" Wrap
-"
+
+" ========== Wrap ============================================================
 " Number of columns before wrap
 set textwidth=78
 " Disable window wrap
 set nowrap
 
-" Visual
-"
+
+" ========== Visual ==========================================================
 " Enable color syntax
 syntax on
 " Enable 256 colors
 set t_Co=256
 " Use specified colorscheme
 colorscheme cottonmouse
-" Inserts a colored column at specified column
-set colorcolumn=80
 " Show line numbers
 set number
 " Hide cursor line
@@ -106,54 +80,56 @@ set title
 set wildmenu
 " Enable visual display for completion when using wild menu
 set wildmode=list:longest,full
-" Show 'hidden'
+" Replace hidden/unwanted characters with a character symbol
 set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
+" Highlight long lines (vim wiki)
+au BufWinEnter * let w:longline=matchadd('ErrorMsg', '\%>78v.\+', -1)
+" Let SCons files share syntax coloring with python
+au BufReadPost [Ss][Cc]onstruct set filetype=python
+au BufReadPost SConscript set filetype=python
 
-" Remap
-"
-" Replace default <Leader> key
+" ========== Key Mapping =====================================================
+" Replace default <leader> key
 let mapleader = ","
 " Exit Insert mode
 inoremap jj <esc>
-" Toggle paste mode in Insert mode
-set pastetoggle=<f3>
+" Copy and paste from system clipboard with proper indenting
+map <c-v> "+p
+map <c-c> "+y
+imap <c-v> <esc><c-v>
 " Clears search highlights
 nnoremap <leader><space> :noh<cr>
-" Jump to matching brackets
-nnoremap <tab> %
-vnoremap <tab> %
-" Movement between buffers
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-h> <c-w>h
-map <c-l> <c-w>l
-" Next buffer
+" Switching between (all) buffers
+noremap <c-h> :bprev<cr>
+noremap <c-l> :bnext<cr>
+" Next (visible) buffer
 nmap <tab><tab> <c-w>w
 " Resize vertical split
 map <c-n> 2<c-w><
 map <c-m> 2<c-w>>
 " Select all
 map <leader>a ggVG
-" Use j and k for going up or down in omni
-inoremap <silent><c-j> <c-r>=OmniPopup('j')<cr>
-inoremap <silent><c-k> <c-r>=OmniPopup('k')<cr>
 " Open vimrc in a new tab
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>v :tabedit $MYVIMRC<cr>
+" Disable F1 (Help)
+nmap <f1> <nop>
+" Toggle visibility of special char such as tabs, tailing white space etc.
+nmap <leader>l :set list!<cr>
 
-" Search
-"
+
+" ========== Seach ===========================================================
 " Case-insensitive searches
 set ignorecase
 " Case-sensitive if search contains an uppercase character
 set smartcase
-" Highlights search terms, press (,space) to clear
+" Highlights search terms, press <,><space> to clear
 set hlsearch
 " Match string while typing a sarch command
 set incsearch
 
-" Temporary storage
-"
+
+" ========== Temporary Storage ===============================================
 " Don't create a backup file
 set nobackup
 set nowritebackup
@@ -166,44 +142,53 @@ set history=500
 " Number of undo levels to track
 set undolevels=500
 
-" Script
-"
-" Automatically trim whitespaces before saving file
-au bufwritepre * :%s/\s\+$//e
-" Movement keys for omni when active, http://tinyurl.com/bud4h9d
-function! OmniPopup(action)
-    if pumvisible()
-        if a:action == 'j'
-            return "\<C-N>"
-        elseif a:action == 'k'
-            return "\<C-P>"
-        endif
-    endif
-    return a:action
-endfunction
 
-" Plugin specific
-"
-" 'powerline'
-"
-" Show status line
+" ========= Script ===========================================================
+" Automatically trim whitespaces before saving file
+au BufWritePre * :%s/\s\+$//e
+" Change how the tabline displays tabs (from :help setting-tabline)
+function CustomTabLine()
+    let s = ''
+    for i in range(tabpagenr('$'))
+        " select highlight
+        if i + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+        " set the tabpagenr (for mouse clicks)
+        let s .= '%' . (i + 1) . 'T'
+        " set label to CustomTabLabel
+        let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
+    endfor
+    " fill with TabLineFill after last tab and reset tabpagenr
+    let s .= '%#TabLineFill#%T'
+    return s
+endfunction
+function CustomTabLabel(n)
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    " add tabpagenr
+    let label = '[' . a:n
+    " add '+' if buffer is modified
+    if getbufvar(buflist[winnr - 1], '&modified')
+        let label .= '+'
+    endif
+    let label .= ' '
+    " add 'No Name' for new files and filetype.ext for existing
+    let bufname = bufname(buflist[winnr - 1])
+    if bufname == ''
+        let label .= 'No Name'
+    else
+        let label .= fnamemodify(bufname, ':t')
+    endif
+    return label . ']'
+endfunction
+set tabline=%!CustomTabLine()
+
+
+" ========== Plugin (Language Independent) ===================================
+" powerline: Show status line
 set laststatus=2
-" Hide Insert, Replace or Visual mode on the last line
+" powerline: Hide Insert, Replace or Visual mode on the last line
 set noshowmode
-"
-" 'python-mode'
-"
-let g:pymode_folding = 0
-let g:pymode_syntax = 1
-let g:pymode_syntax_builtin_objs = 0
-let g:pymode_syntax_builtin_funcs = 0
-let g:pymode_rope_guess_project = 1
-let g:pymode_rope_extended_complete = 1
-"
-" 'supertab'
-"
-let g:SuperTabDefaultCompletionType = "context"
-"
-" 'nerdtree'
-"
-nmap <c-o> :NERDTreeToggle<CR>

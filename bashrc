@@ -13,4 +13,10 @@ alias rm='rm -i -v'
 alias halt='sudo halt'
 alias reboot='sudo reboot'
 
-export EDITOR=vim
+EDITOR=vim
+VISUAL=$EDITOR
+export EDITOR VISUAL
+# golang
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/Dropbox/code/go
+export PATH=$PATH:$GOPATH/bin
