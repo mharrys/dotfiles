@@ -89,6 +89,7 @@ au BufWinEnter * let w:longline=matchadd('ErrorMsg', '\%>78v.\+', -1)
 au BufReadPost [Ss][Cc]onstruct set filetype=python
 au BufReadPost SConscript set filetype=python
 
+
 " ========== Key Mapping =====================================================
 " Replace default <leader> key
 let mapleader = ","
