@@ -8,5 +8,5 @@
     path = vim/bundle/ctrlp
     url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/golang"]
-	path = vim/bundle/golang
-	url = git://github.com/jnwhiteh/vim-golang
+    path = vim/bundle/golang
+    url = git://github.com/jnwhiteh/vim-golang
