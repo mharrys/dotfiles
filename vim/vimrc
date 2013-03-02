@@ -83,8 +83,8 @@ set wildmode=list:longest,full
 " Replace hidden/unwanted characters with a character symbol
 set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
-" Highlight long lines (vim wiki)
-au BufWinEnter * let w:longline=matchadd('ErrorMsg', '\%>78v.\+', -1)
+" Show color column
+set cc=79
 " Let SCons files share syntax coloring with python
 au BufReadPost [Ss][Cc]onstruct set filetype=python
 au BufReadPost SConscript set filetype=python
