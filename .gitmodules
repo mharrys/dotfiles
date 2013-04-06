@@ -1,12 +1,15 @@
 [submodule "pathogen"]
-    path = vim/bundle/pathogen
-    url = git://github.com/tpope/vim-pathogen.git
+	path = vim/bundle/pathogen
+	url = git://github.com/tpope/vim-pathogen.git
 [submodule "powerline"]
-    path = vim/bundle/powerline
-    url = git://github.com/Lokaltog/vim-powerline.git
+	path = vim/bundle/powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
 [submodule "ctrlp"]
-    path = vim/bundle/ctrlp
-    url = git://github.com/kien/ctrlp.vim.git
+	path = vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/golang"]
-    path = vim/bundle/golang
-    url = git://github.com/jnwhiteh/vim-golang
+	path = vim/bundle/golang
+	url = git://github.com/jnwhiteh/vim-golang
+[submodule "vim/bundle/flake8"]
+	path = vim/bundle/flake8
+	url = https://github.com/nvie/vim-flake8
