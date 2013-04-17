@@ -67,7 +67,7 @@ syntax on
 " Enable 256 colors
 set t_Co=256
 " Use specified colorscheme
-colorscheme cottonmouse
+colorscheme noeyepain
 " Show line numbers
 set number
 " Hide cursor line
