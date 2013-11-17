@@ -13,7 +13,8 @@ alias rm='rm -i -v'
 
 export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR
-
+# gpg agent
+export GPG_TTY=$(tty)
 # golang
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/Code/Go
