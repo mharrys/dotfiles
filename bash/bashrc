@@ -5,11 +5,9 @@
 
 PS1="\[\e[00;37m\]\W\$ \[\e[0m\]"
 
-alias ls='ls -h --color=auto --group-directories-first'
-alias grep='grep --color=auto'
-alias cp='cp -i -v'
-alias mv='mv -i -v'
-alias rm='rm -i -v'
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 export EDITOR=/usr/bin/vim
 export VISUAL=$EDITOR
