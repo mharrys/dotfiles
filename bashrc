@@ -18,5 +18,5 @@ VISUAL=$EDITOR
 export EDITOR VISUAL
 # golang
 export GOROOT=/usr/lib/go
-export GOPATH=$HOME/Dropbox/code/go
+export GOPATH=$HOME/Code/Go
 export PATH=$PATH:$GOPATH/bin
