@@ -11,9 +11,9 @@ alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
 
-EDITOR=vim
-VISUAL=$EDITOR
-export EDITOR VISUAL
+export EDITOR=/usr/bin/vim
+export VISUAL=$EDITOR
+
 # golang
 export GOROOT=/usr/lib/go
 export GOPATH=$HOME/Code/Go
