@@ -10,8 +10,6 @@ alias grep='grep --color=auto'
 alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
-alias halt='sudo halt'
-alias reboot='sudo reboot'
 
 EDITOR=vim
 VISUAL=$EDITOR
