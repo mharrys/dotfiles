@@ -16,7 +16,7 @@ set modelines=0
 " Allow backspace in Insert mode
 set backspace=indent,eol,start
 " Minimum number of lines above and below cursor
-set scrolloff=4
+set scrolloff=0
 " Disable Vim intro message
 set shortmess=atI
 " Enable filetype detection and indenting for supported filetypes
