@@ -148,6 +148,7 @@ set undolevels=500
 " Automatically trim whitespaces before saving file
 au BufWritePre * :%s/\s\+$//e
 
+
 " ========== Plugin (Language Independent) ===================================
 " airline: Show status line
 set laststatus=2
