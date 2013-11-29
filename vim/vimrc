@@ -67,7 +67,7 @@ syntax on
 " Enable 256 colors
 set t_Co=256
 " Use specified colorscheme
-colorscheme noeyepain
+colorscheme jellybeans
 " Show line numbers
 set number
 " Hide cursor line
