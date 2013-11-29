@@ -149,9 +149,9 @@ set undolevels=500
 au BufWritePre * :%s/\s\+$//e
 
 " ========== Plugin (Language Independent) ===================================
-" powerline: Show status line
+" airline: Show status line
 set laststatus=2
-" powerline: Hide Insert, Replace or Visual mode on the last line
+" airline: Hide Insert, Replace or Visual mode on the last line
 set noshowmode
 " airline: Enable smarter tab line
 let g:airline#extensions#tabline#enabled = 1
