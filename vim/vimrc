@@ -17,6 +17,8 @@ set modelines=0
 set backspace=indent,eol,start
 " Minimum number of lines above and below cursor
 set scrolloff=0
+" Minimum number of column before and after cursor
+set sidescrolloff=16
 " Disable Vim intro message
 set shortmess=atI
 " Enable filetype detection and indenting for supported filetypes
