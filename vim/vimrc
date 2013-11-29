@@ -147,49 +147,11 @@ set undolevels=500
 " ========= Script ===========================================================
 " Automatically trim whitespaces before saving file
 au BufWritePre * :%s/\s\+$//e
-" Change how the tabline displays tabs (from :help setting-tabline)
-function CustomTabLine()
-    let s = ''
-    for i in range(tabpagenr('$'))
-        " select highlight
-        if i + 1 == tabpagenr()
-            let s .= '%#TabLineSel#'
-        else
-            let s .= '%#TabLine#'
-        endif
-        " set the tabpagenr (for mouse clicks)
-        let s .= '%' . (i + 1) . 'T'
-        " set label to CustomTabLabel
-        let s .= ' %{CustomTabLabel(' . (i + 1) . ')} '
-    endfor
-    " fill with TabLineFill after last tab and reset tabpagenr
-    let s .= '%#TabLineFill#%T'
-    return s
-endfunction
-function CustomTabLabel(n)
-    let buflist = tabpagebuflist(a:n)
-    let winnr = tabpagewinnr(a:n)
-    " add tabpagenr
-    let label = '[' . a:n
-    " add '+' if buffer is modified
-    if getbufvar(buflist[winnr - 1], '&modified')
-        let label .= '+'
-    endif
-    let label .= ' '
-    " add 'No Name' for new files and filetype.ext for existing
-    let bufname = bufname(buflist[winnr - 1])
-    if bufname == ''
-        let label .= 'No Name'
-    else
-        let label .= fnamemodify(bufname, ':t')
-    endif
-    return label . ']'
-endfunction
-set tabline=%!CustomTabLine()
-
 
 " ========== Plugin (Language Independent) ===================================
 " powerline: Show status line
 set laststatus=2
 " powerline: Hide Insert, Replace or Visual mode on the last line
 set noshowmode
+" airline: Enable smarter tab line
+let g:airline#extensions#tabline#enabled = 1
