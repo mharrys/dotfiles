@@ -105,7 +105,9 @@ nnoremap <leader><space> :noh<cr>
 noremap <c-h> :bprev<cr>
 noremap <c-l> :bnext<cr>
 " Next (visible) buffer
-nmap <tab><tab> <c-w>w
+nmap <tab> <c-w>w
+" Prev (visible) buffer
+nmap <s-tab> <c-w>W
 " Resize vertical split
 map <c-n> 2<c-w><
 map <c-m> 2<c-w>>
