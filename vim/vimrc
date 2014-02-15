@@ -96,7 +96,7 @@ au BufReadPost SConscript set filetype=python
 " Replace default <leader> key
 let mapleader = ","
 " Exit Insert mode
-inoremap jk <esc>
+inoremap jj <esc>
 " Copy and paste from system clipboard with proper indenting
 map <c-v> "+p
 map <c-c> "+y
