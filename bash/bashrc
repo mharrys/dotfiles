@@ -15,14 +15,3 @@ alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
 alias ydl='youtube-dl -o "~/videos/web/%(title)s.%(ext)s"'
-
-export EDITOR=vim
-export VISUAL=$EDITOR
-
-export GPG_TTY=$(tty)
-
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/code/go
-export PATH=$PATH:$GOPATH/bin
-
-source /etc/bash_completion.d/password-store
