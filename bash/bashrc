@@ -14,4 +14,15 @@ alias grep='grep --color=auto'
 alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
-alias ydl='youtube-dl -o "~/videos/web/%(title)s.%(ext)s"'
+alias ydl='youtube-dl --prefer-free-formats -o "~/videos/web/%(title)s.%(ext)s"'
+
+url_to_mpv() {
+    if [ -z "$1" ]
+    then
+        echo 'mpvurl: error: missing url argument'
+    else
+        mpv --really-quiet $(youtube-dl -g "$1")
+    fi
+}
+
+alias mpvurl=url_to_mpv
