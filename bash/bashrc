@@ -14,7 +14,7 @@ alias grep='grep --color=auto'
 alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
-alias ydl='youtube-dl --prefer-free-formats -o "~/videos/web/%(title)s.%(ext)s"'
+alias ydl='youtube-dl --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
 
 url_to_mpv() {
     if [ -z "$1" ]
