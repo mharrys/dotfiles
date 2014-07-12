@@ -1,1 +1,3 @@
-softvol-max=600
+softvol = yes
+softvol-max=1600
+loop = inf
