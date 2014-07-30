@@ -123,7 +123,7 @@ nmap <f1> <nop>
 nmap <leader>l :set list!<cr>
 
 
-" ========== Seach ===========================================================
+" ========== Search ===========================================================
 " Case-insensitive searches
 set ignorecase
 " Case-sensitive if search contains an uppercase character
