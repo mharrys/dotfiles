@@ -26,3 +26,8 @@ url_to_mpv() {
 }
 
 alias mpvurl=url_to_mpv
+
+if [ -e /usr/bin/vimx ]
+then
+    alias vim=vimx;
+fi
