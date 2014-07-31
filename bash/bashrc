@@ -29,5 +29,8 @@ alias mpvurl=url_to_mpv
 
 if [ -e /usr/bin/vimx ]
 then
-    alias vim=vimx;
+    alias vim=vimx
+    export EDITOR=vimx
+else
+    export EDITOR=vim
 fi
