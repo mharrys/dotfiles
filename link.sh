@@ -59,6 +59,10 @@ fileln kde/Autostart/ssh-agent.sh .kde/Autostart/ssh-agent.sh
 # mpv
 fileln mpv .mpv
 
+# ranger
+createdir .config/ranger
+fileln ranger/rifle.conf .config/ranger/rifle.conf
+
 # vim
 fileln vim .vim
 fileln vim/vimrc .vimrc
