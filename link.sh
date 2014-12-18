@@ -37,10 +37,6 @@ function fileln {
     ln -s $DIR/$1 $HOME/$2
 }
 
-function filechown {
-    chown -h mattias:mattias $HOME/$1
-}
-
 echo -n "Creating links... "
 
 # bash
@@ -71,6 +67,6 @@ fileln vim/gvimrc .gvimrc
 # ssh
 createdir .ssh
 fileln ssh/config .ssh/config
-filechown .ssh/config
+chmod 600 $HOME/.ssh/config
 
 echo "Done!"
