@@ -153,7 +153,7 @@ set undolevels=500
 au BufWritePre * :%s/\s\+$//e
 
 
-" ========== Plugin (Language Independent) ===================================
+" ========== Plugin ==========================================================
 " airline: Show status line
 set laststatus=2
 " airline: Hide Insert, Replace or Visual mode on the last line
@@ -164,3 +164,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:gitgutter_realtime = 0
 " gitgutter: Turn off eager execution
 let g:gitgutter_eager = 0
+" commentary: Override comment string symbol for specified file types
+autocmd FileType glsl set commentstring=//\ %s
+autocmd FileType cpp  set commentstring=//\ %s
