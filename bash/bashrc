@@ -27,6 +27,12 @@ url_to_mpv() {
 
 alias mpvurl=url_to_mpv
 
+aspell_pipe_string() {
+    printf $1 | aspell -a
+}
+
+alias spellcheck=aspell_pipe_string
+
 if [ -e /usr/bin/vimx ]
 then
     alias vim=vimx
