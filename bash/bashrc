@@ -8,12 +8,21 @@ fi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-url_to_mpv() {
+youtube_dl_to_mpv() {
     if [ -z "$1" ]
     then
         echo 'mpvurl: error: missing url argument'
     else
         mpv --really-quiet $(youtube-dl -g "$1")
+    fi
+}
+
+svtplay_dl_to_mpv() {
+    if [ -z "$1" ]
+    then
+        echo 'mpvsvt: error: missing url argument'
+    else
+        mpv --really-quiet $(svtplay-dl -g "$1")
     fi
 }
 
@@ -27,7 +36,8 @@ alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
 alias ydl='youtube-dl --recode-video webm --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
-alias mpvurl=url_to_mpv
+alias mpvurl=youtube_dl_to_mpv
+alias mpvsvt=svtplay_dl_to_mpv
 alias spellcheck=aspell_pipe_string
 
 if [ -e /usr/bin/vimx ]
