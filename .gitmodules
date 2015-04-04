@@ -4,9 +4,6 @@
 [submodule "ctrlp"]
 	path = vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
-[submodule "vim/bundle/golang"]
-	path = vim/bundle/golang
-	url = git://github.com/jnwhiteh/vim-golang
 [submodule "vim/bundle/flake8"]
 	path = vim/bundle/flake8
 	url = https://github.com/nvie/vim-flake8
