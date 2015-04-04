@@ -16,9 +16,7 @@ set modelines=0
 " Allow backspace in Insert mode
 set backspace=indent,eol,start
 " Minimum number of lines above and below cursor
-set scrolloff=0
-" Minimum number of column before and after cursor
-set sidescrolloff=16
+set scrolloff=8
 " Disable Vim intro message
 set shortmess=atI
 " Enable filetype detection and indenting for supported filetypes
@@ -165,5 +163,11 @@ let g:gitgutter_realtime = 0
 " gitgutter: Turn off eager execution
 let g:gitgutter_eager = 0
 " commentary: Override comment string symbol for specified file types
-autocmd FileType glsl set commentstring=//\ %s
-autocmd FileType cpp  set commentstring=//\ %s
+autocmd FileType glsl   set commentstring=//\ %s
+autocmd FileType cpp    set commentstring=//\ %s
+autocmd FileType matlab set commentstring=%\ %s
+" rainbow: Autostart
+autocmd VimEnter * RainbowParenthesesToggle
+" rainbow: Load also for [,{
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
