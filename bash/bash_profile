@@ -7,10 +7,9 @@ fi
 
 # User specific environment and startup programs
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
-
 export PATH
 
-export EDITOR=vim
-export VISUAL=$EDITOR
-
-source /etc/bash_completion.d/password-store
+export GMOCK_DIR=$HOME/build/gmock
+export GTEST_DIR=$GMOCK_DIR/gtest
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin

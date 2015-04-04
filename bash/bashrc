@@ -8,14 +8,6 @@ fi
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
-# User specific aliases and functions
-alias ls='ls -h --color=auto --group-directories-first'
-alias grep='grep --color=auto'
-alias cp='cp -i -v'
-alias mv='mv -i -v'
-alias rm='rm -i -v'
-alias ydl='youtube-dl --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
-
 url_to_mpv() {
     if [ -z "$1" ]
     then
@@ -25,18 +17,26 @@ url_to_mpv() {
     fi
 }
 
-alias mpvurl=url_to_mpv
-
 aspell_pipe_string() {
     printf $1 | aspell -a
 }
 
+alias ls='ls -h --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias cp='cp -i -v'
+alias mv='mv -i -v'
+alias rm='rm -i -v'
+alias ydl='youtube-dl --recode-video webm --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
+alias mpvurl=url_to_mpv
 alias spellcheck=aspell_pipe_string
 
 if [ -e /usr/bin/vimx ]
 then
-    alias vim=vimx
     export EDITOR=vimx
+    alias vim=vimx
 else
     export EDITOR=vim
 fi
+export VISUAL=$EDITOR
+
+source /etc/bash_completion.d/password-store
