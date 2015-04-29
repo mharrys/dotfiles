@@ -67,6 +67,7 @@ fileln vim/gvimrc .gvimrc
 # ssh
 createdir .ssh
 fileln ssh/config .ssh/config
-chmod 600 $HOME/.ssh/config
+chown $USER ssh/config
+chmod 600 ssh/config
 
 echo "Done!"
