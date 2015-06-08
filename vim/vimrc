@@ -119,6 +119,8 @@ nmap <leader>v :tabedit $MYVIMRC<cr>
 nmap <f1> <nop>
 " Toggle visibility of special char such as tabs, tailing white space etc.
 nmap <leader>l :set list!<cr>
+" Stop window poppuing up
+map q: :q
 
 
 " ========== Search ===========================================================
