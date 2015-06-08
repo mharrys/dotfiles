@@ -151,6 +151,8 @@ set undolevels=500
 " ========= Script ===========================================================
 " Automatically trim whitespaces before saving file
 au BufWritePre * :%s/\s\+$//e
+" Set .h to c style and .hpp to cpp style
+au BufRead,BufNewFile *.h set filetype=c
 
 
 " ========== Plugin ==========================================================
