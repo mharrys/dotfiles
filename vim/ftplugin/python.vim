@@ -1,1 +1,2 @@
-au BufWritePost *.py call Flake8()
+" syntatic settings
+let g:syntastic_python_checkers = ["pylint"]
