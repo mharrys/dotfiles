@@ -38,3 +38,6 @@
 	path = vim/bundle/clojure
 	url = https://github.com/guns/vim-clojure-static
 	ignore = dirty
+[submodule "vim/bundle/javascript-syntax"]
+	path = vim/bundle/javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax
