@@ -1,6 +1,6 @@
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set nolist
-set noexpandtab
-set nosmarttab
+setlocal tabstop=4
+setlocal softtabstop=4
+setlocal shiftwidth=4
+setlocal nolist
+setlocal noexpandtab
+setlocal nosmarttab
