@@ -48,10 +48,6 @@ createdir .gnupg
 fileln gnupg/gpg-agent.conf .gnupg/gpg-agent.conf
 fileln gnupg/gpg.conf .gnupg/gpg.conf
 
-# kde
-createdir .kde/Autostart
-fileln kde/Autostart/ssh-agent.sh .kde/Autostart/ssh-agent.sh
-
 # mpv
 fileln mpv .mpv
 
