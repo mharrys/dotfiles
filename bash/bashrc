@@ -11,15 +11,6 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 export PS1='\e[0;34m\w\e[0m$(__git_ps1 " \e[0;32m(%s)\e[0m")\n\$ '
 
-youtube_dl_to_mpv() {
-    if [ -z "$1" ]
-    then
-        echo 'mpvurl: error: missing url argument'
-    else
-        mpv --really-quiet $(youtube-dl -g "$1")
-    fi
-}
-
 svtplay_dl_to_mpv() {
     if [ -z "$1" ]
     then
@@ -39,7 +30,6 @@ alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
 alias ydl='youtube-dl --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
-alias mpvurl=youtube_dl_to_mpv
 alias mpvsvt=svtplay_dl_to_mpv
 alias spellcheck=aspell_pipe_string
 
