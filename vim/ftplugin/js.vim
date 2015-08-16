@@ -3,11 +3,12 @@ setlocal softtabstop=4
 setlocal shiftwidth=4
 setlocal expandtab
 setlocal smarttab
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set completeopt-=preview
+
+setlocal statusline+=%#warningmsg#
+setlocal statusline+=%{SyntasticStatuslineFlag()}
+setlocal statusline+=%*
+setlocal completeopt-=preview
+
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1

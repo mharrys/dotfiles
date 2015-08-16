@@ -1,1 +1,4 @@
-set guifont=Envy\ Code\ R\ 10
+" Set default font
+set guifont=GohuFont\ 10
+" Enable mouse interaction
+set mouse=a

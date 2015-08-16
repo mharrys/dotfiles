@@ -1,12 +1,19 @@
 #!/bin/bash
 
 BACKUP=false
+PLUGINS=false
 DIR=$(pwd)
 
 read -p "Backup any existing files? " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     BACKUP=true
+fi
+
+read -p "Install Vim plugins? " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    PLUGINS=true
 fi
 
 function createdir {
@@ -59,6 +66,10 @@ fileln ranger/rifle.conf .config/ranger/rifle.conf
 fileln vim .vim
 fileln vim/vimrc .vimrc
 fileln vim/gvimrc .gvimrc
+if $PLUGINS; then
+    git clone https://github.com/vundleVim/Vundle.vim vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+fi
 
 # ssh
 createdir .ssh

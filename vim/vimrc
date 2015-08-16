@@ -1,33 +1,39 @@
-" UTF-8 character encoding
-set encoding=utf-8
-" Start Pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-" Indicate a fast terminal connection
+" Vi iMproved
+set nocompatible
+" Disable filetype detection
+filetype off
+" Setup Vundle and plugins
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
+Plugin 'itchyny/lightline.vim'
+Plugin 'JulesWang/css.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'oscarh/vimerl'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/syntastic'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-vinegar'
+call vundle#end()
+" Enable filetype detection and indenting for supported filetypes
+filetype plugin indent on
+" Drawing options
 set ttyfast
-" Disable errorbell and visualbell
-set noeb novb t_vb=
-" Enable mouse interaction
-set mouse=a
+set lazyredraw
 " Disable modline support
 set nomodeline
 set modelines=0
 " Allow backspace in Insert mode
 set backspace=indent,eol,start
 " Minimum number of lines above and below cursor
-set scrolloff=8
-" Disable Vim intro message
-set shortmess=atI
-" Enable filetype detection and indenting for supported filetypes
-filetype plugin indent on
-" Default text formatting
-"   t: Auto-wrap text using 'textwidth'
-"   c: Auto-wrap comments using 'textwidth', inserting the current comment
-"      leader automatically
-"   r: Automatically insert the current comment leader after hitting enter
-"      in Insert mode
-set formatoptions=tcr
+set scrolloff=10
+" Disable intro message
+set shortmess+=I
 " Do not automatically append first word and always show menu even for one
 " match. This will disable preview
 set completeopt=longest,menuone
@@ -35,7 +41,6 @@ set completeopt=longest,menuone
 set hidden
 
 
-" ========== Tab =============================================================
 " Number of columns to use for one tab character
 set tabstop=4
 " Number of columns to jump when pressing <tab> or <bs>
@@ -44,55 +49,48 @@ set softtabstop=4
 set shiftwidth=4
 " Insert 'softtabstop' amount of spaces instead of tab character
 set expandtab
-" Insert 'shiftwidth' amount of spaces if infront of a line when pressing
+" Insert 'shiftwidth' amount of spaces if in front of a line when pressing
 " <tab>
 set smarttab
-
-
-" ========== Indent ==========================================================
 " Copy indentation from previous line when starting a new line
 set autoindent
 
 
-" ========== Wrap ============================================================
 " Number of columns before wrap
 set textwidth=78
 " Disable window wrap
 set nowrap
 
 
-" ========== Visual ==========================================================
 " Enable color syntax
 syntax on
-" Enable 256 colors
-set t_Co=256
 " Use specified colorscheme
 colorscheme jellybeans
 " Show line numbers
 set number
 " Hide cursor line
 set nocursorline
-" Hide (partial) comman
+" Hide (partial) command
 set noshowcmd
 " Show filename in window titlebar
 set title
 " Enable wild menu
 set wildmenu
 " Enable visual display for completion when using wild menu
-set wildmode=list:longest,full
+set wildmode=list,longest,full
 " Replace hidden/unwanted characters with a character symbol
 set lcs=tab:▸\ ,trail:·,nbsp:_
 set list
 " Hide color column
 set cc=
-" Let SCons files share syntax coloring with python
-au BufReadPost [Ss][Cc]onstruct set filetype=python
-au BufReadPost SConscript set filetype=python
+" Show status line
+set laststatus=2
+" Hide Insert/Replace/Visual mode message on the last line
+set noshowmode
 
 
-" ========== Key Mapping =====================================================
 " Replace default <leader> key
-let mapleader = ","
+let mapleader=","
 " Exit Insert mode
 inoremap jj <esc>
 " Copy and paste from system clipboard with proper indenting
@@ -119,22 +117,20 @@ nmap <leader>v :tabedit $MYVIMRC<cr>
 nmap <f1> <nop>
 " Toggle visibility of special char such as tabs, tailing white space etc.
 nmap <leader>l :set list!<cr>
-" Stop window poppuing up
+" Stop window pop up
 map q: :q
 
 
-" ========== Search ===========================================================
 " Case-insensitive searches
 set ignorecase
 " Case-sensitive if search contains an uppercase character
 set smartcase
 " Highlights search terms, press <,><space> to clear
 set hlsearch
-" Match string while typing a sarch command
+" Match string while typing a search command
 set incsearch
 
 
-" ========== Temporary Storage ===============================================
 " Don't create a backup file
 set nobackup
 set nowritebackup
@@ -148,30 +144,28 @@ set history=500
 set undolevels=500
 
 
-" ========= Script ===========================================================
 " Automatically trim whitespaces before saving file
 au BufWritePre * :%s/\s\+$//e
 " Set .h to c style and .hpp to cpp style
-au BufRead,BufNewFile *.h set filetype=c
+au BufNewFile,BufRead *.h setlocal filetype=c
+" Let SCons files share syntax coloring with python
+au BufNewFile,BufRead SCons*
+            \ setlocal filetype=python |
+            \ let b:syntastic_checkers=['']
+" Force default text formatting
+"   t: Auto-wrap text using 'textwidth'
+"   c: Auto-wrap comments using 'textwidth' and insert the current comment
+"      leader automatically
+"   r: Automatically insert the current comment leader after hitting enter
+"      in Insert mode
+au BufNewFile,BufRead * setlocal formatoptions=tcr
 
 
-" ========== Plugin ==========================================================
-" airline: Show status line
-set laststatus=2
-" airline: Hide Insert, Replace or Visual mode on the last line
-set noshowmode
-" airline: Enable smarter tab line
-let g:airline#extensions#tabline#enabled = 1
-" gitgutter: Stop running in realtime
-let g:gitgutter_realtime = 0
-" gitgutter: Turn off eager execution
-let g:gitgutter_eager = 0
-" commentary: Override comment string symbol for specified file types
-autocmd FileType glsl   set commentstring=//\ %s
-autocmd FileType cpp    set commentstring=//\ %s
-autocmd FileType matlab set commentstring=%\ %s
-" rainbow: Autostart
-autocmd VimEnter * RainbowParenthesesToggle
-" rainbow: Load also for [,{
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
+" Lightline settings
+let g:lightline={
+    \ 'colorscheme': 'jellybeans',
+    \ }
+" Stop running in realtime
+let g:gitgutter_realtime=0
+" Turn off eager execution
+let g:gitgutter_eager=0
