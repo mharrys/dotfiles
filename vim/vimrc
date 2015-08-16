@@ -120,6 +120,8 @@ nmap <f1> <nop>
 nmap <leader>l :set list!<cr>
 " Stop window pop up
 map q: :q
+" Stop encryption
+map :X :x
 " Search with Ack
 map \ :Ack<space>
 
