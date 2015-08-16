@@ -38,7 +38,7 @@ alias grep='grep --color=auto'
 alias cp='cp -i -v'
 alias mv='mv -i -v'
 alias rm='rm -i -v'
-alias ydl='youtube-dl --recode-video webm --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
+alias ydl='youtube-dl --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
 alias mpvurl=youtube_dl_to_mpv
 alias mpvsvt=svtplay_dl_to_mpv
 alias spellcheck=aspell_pipe_string
