@@ -66,6 +66,7 @@ set nowrap
 " Enable color syntax
 syntax on
 " Use specified colorscheme
+set t_Co=256
 colorscheme jellybeans
 " Show line numbers
 set number
