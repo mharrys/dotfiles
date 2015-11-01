@@ -43,4 +43,6 @@ else
 fi
 export VISUAL=$EDITOR
 
-source /etc/bash_completion.d/password-store
+source ~/bak/pass.bash-completion
+
+export PATH=$PATH:$HOME/.local/bin
