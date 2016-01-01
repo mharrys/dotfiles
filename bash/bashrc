@@ -11,6 +11,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 export PS1='\e[0;34m\w\e[0m$(__git_ps1 " \e[0;32m(%s)\e[0m")\n\$ '
 
+
+eval "$(stack --bash-completion-script stack)"
+
 svtplay_dl_to_mpv() {
     if [ -z "$1" ]
     then
