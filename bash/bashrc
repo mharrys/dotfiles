@@ -11,6 +11,16 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 export PS1='\e[0;34m\w\e[0m$(__git_ps1 " \e[0;32m(%s)\e[0m")\n\$ '
 
+if [ -e /usr/bin/vimx ]
+then
+    export EDITOR=vimx
+    alias vim=vimx
+else
+    export EDITOR=vim
+fi
+
+export VISUAL=$EDITOR
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/opt/anaconda2/bin
 
 eval "$(stack --bash-completion-script stack)"
@@ -37,16 +47,3 @@ alias rm='rm -i -v'
 alias ydl='youtube-dl --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
 alias mpvsvt=svtplay_dl_to_mpv
 alias spellcheck=aspell_pipe_string
-
-if [ -e /usr/bin/vimx ]
-then
-    export EDITOR=vimx
-    alias vim=vimx
-else
-    export EDITOR=vim
-fi
-export VISUAL=$EDITOR
-
-source ~/bak/pass.bash-completion
-
-export PATH=$PATH:$HOME/.local/bin
