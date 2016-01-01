@@ -61,6 +61,7 @@ fileln mpv .mpv
 # ranger
 createdir .config/ranger
 fileln ranger/rifle.conf .config/ranger/rifle.conf
+fileln ranger/rc.conf .config/ranger/rc.conf
 
 # vim
 fileln vim .vim
