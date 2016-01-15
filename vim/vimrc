@@ -11,6 +11,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'JulesWang/css.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'nanotech/jellybeans.vim'
 Plug 'oscarh/vimerl', {'for': 'erlang'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'scrooloose/syntastic'
