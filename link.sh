@@ -68,8 +68,7 @@ fileln vim .vim
 fileln vim/vimrc .vimrc
 fileln vim/gvimrc .gvimrc
 if $PLUGINS; then
-    git clone https://github.com/vundleVim/Vundle.vim vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    vim +PlugInstall
 fi
 
 # ssh

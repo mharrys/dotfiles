@@ -2,26 +2,24 @@
 set nocompatible
 " Disable filetype detection
 filetype off
-" Setup Vundle and plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'fatih/vim-go'
-Plugin 'itchyny/lightline.vim'
-Plugin 'JulesWang/css.vim'
-Plugin 'ctrlp/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'oscarh/vimerl'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-vinegar'
-call vundle#end()
+" Setup plugins
+call plug#begin()
+Plug 'airblade/vim-gitgutter'
+Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
+Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'itchyny/lightline.vim'
+Plug 'JulesWang/css.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'oscarh/vimerl', {'for': 'erlang'}
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'scrooloose/syntastic'
+Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fireplace', {'for': 'clojure'}
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-vinegar'
+call plug#end()
 " Enable filetype detection and indenting for supported filetypes
 filetype plugin indent on
 " Drawing options
