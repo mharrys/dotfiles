@@ -68,6 +68,8 @@ fileln vim .vim
 fileln vim/vimrc .vimrc
 fileln vim/gvimrc .gvimrc
 if $PLUGINS; then
+    curl -fLo vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     vim +PlugInstall
 fi
 
