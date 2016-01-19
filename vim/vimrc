@@ -8,7 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
 Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'itchyny/lightline.vim'
-Plug 'JulesWang/css.vim'
+Plug 'JulesWang/css.vim', {'for': 'css'}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'nanotech/jellybeans.vim'
