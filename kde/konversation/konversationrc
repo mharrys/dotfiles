@@ -1,0 +1,31 @@
+[Appearance]
+AllowColorCodes=false
+CustomListFont=true
+CustomTabFont=true
+CustomTextFont=true
+ListFont=GohuFont,11,-1,5,50,0,0,0,0,0
+NickColor0=166,56,56
+NickColor1=116,149,67
+NickColor2=225,170,93
+NickColor3=109,169,181
+NickColor4=125,81,206
+NickColor5=66,113,123
+NickColor6=143,118,109
+NickColor8=180,180,180
+ShowIRCViewScrollBar=false
+TabFont=GohuFont,11,-1,5,50,0,0,0,0,0
+TextFont=GohuFont,11,-1,5,50,0,0,0,0,0
+
+[Highlight List]
+HighlightNickColor=160,208,255
+
+[Message Text Colors]
+ActionMessage=135,175,215
+BacklogMessage=77,77,77
+ChannelMessage=215,215,215
+CommandMessage=215,175,255
+Hyperlink=135,135,175
+QueryMessage=215,215,215
+ServerMessage=255,175,95
+TextViewBackground=18,18,18
+Time=197,255,138
