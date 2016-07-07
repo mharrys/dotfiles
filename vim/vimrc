@@ -19,6 +19,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vinegar'
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+Plug 'derekwyatt/vim-scala', {'for': 'scala'}
 call plug#end()
 " Enable filetype detection and indenting for supported filetypes
 filetype plugin indent on
