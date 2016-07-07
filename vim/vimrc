@@ -153,8 +153,6 @@ set undolevels=500
 
 " Automatically trim whitespaces before saving file
 au BufWritePre * :%s/\s\+$//e
-" Set .h to c style and .hpp to cpp style
-au BufNewFile,BufRead *.h setlocal filetype=c
 " Let SCons files share syntax coloring with python
 au BufNewFile,BufRead SCons*
             \ setlocal filetype=python |
