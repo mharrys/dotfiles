@@ -2,3 +2,8 @@
 set guifont=GohuFont\ 10
 " Enable mouse interaction
 set mouse=a
+" Disable GUI
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
