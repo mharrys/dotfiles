@@ -14,7 +14,6 @@ Plug 'mileszs/ack.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'oscarh/vimerl', {'for': 'erlang'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'scrooloose/syntastic'
 Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fireplace', {'for': 'clojure'}
