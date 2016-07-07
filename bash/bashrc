@@ -1,30 +1,18 @@
 #!/bin/bash
 
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
-
 source /usr/share/git/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 export PS1='\e[0;34m\w\e[0m$(__git_ps1 " \e[0;32m(%s)\e[0m")\n\$ '
 
-if [ -e /usr/bin/vimx ]
-then
-    export EDITOR=vimx
-    alias vim=vimx
-else
-    export EDITOR=vim
-fi
-
+export EDITOR=vim
 export VISUAL=$EDITOR
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/opt/anaconda2/bin
-export PATH=$PATH:$HOME/opt/elixir/bin
+# export PATH=$PATH:$HOME/opt/anaconda2/bin
+# export PATH=$PATH:$HOME/opt/elixir/bin
 
-eval "$(stack --bash-completion-script stack)"
+# eval "$(stack --bash-completion-script stack)"
 
 svtplay_dl_to_mpv() {
     if [ -z "$1" ]
@@ -48,3 +36,4 @@ alias rm='rm -i -v'
 alias ydl='youtube-dl --prefer-free-formats -o "~/multimedia/videos/web/%(title)s.%(ext)s"'
 alias mpvsvt=svtplay_dl_to_mpv
 alias spellcheck=aspell_pipe_string
+alias ..='cd ..'
